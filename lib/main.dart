@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'profile_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -69,22 +70,9 @@ class MyHomePage extends StatelessWidget {
               leading: Icon(Icons.person),
               title: Text('Tentang Saya'),
               onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      title: Text('Tentang Saya'),
-                      content: Text(
-                        'Halo! Saya Reyon Lau Jiemin, mahasiswa yang sedang belajar Flutter.',
-                      ),
-                      actions: [
-                        TextButton(
-                          onPressed: () => Navigator.pop(context),
-                          child: Text('Tutup'),
-                        ),
-                      ],
-                    );
-                  },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
                 );
               },
             ),
