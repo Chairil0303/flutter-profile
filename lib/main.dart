@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'profile_page.dart';
+import 'riwayat_pendidikan_page.dart';
+import 'pengalaman_kerja_page.dart';
+import 'keterampilan_page.dart';
+import 'kontak_page.dart';
+import 'portofolio_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,24 +49,15 @@ class MyHomePage extends StatelessWidget {
                   SizedBox(height: 10),
                   Text(
                     'Nama: Chairil Syahrain',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 250, 250, 250),
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   Text(
                     'NIM: 221011400144',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   Text(
                     'Kelas: 06TPLP004',
-                    style: TextStyle(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 16,
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ],
               ),
@@ -76,6 +72,64 @@ class MyHomePage extends StatelessWidget {
                 );
               },
             ),
+            ListTile(
+              leading: Icon(Icons.school),
+              title: Text('Riwayat Pendidikan'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const RiwayatPendidikanPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.work),
+              title: Text('Pengalaman Kerja'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PengalamanKerjaPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.star),
+              title: Text('Keterampilan'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const KeterampilanPage(),
+                  ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.contact_mail),
+              title: Text('Kontak'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const KontakPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.folder),
+              title: Text('Portofolio'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PortofolioPage(),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -84,7 +138,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Nama : Chairil syahrain',
+              'Nama : Chairil Syahrain',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 10),
