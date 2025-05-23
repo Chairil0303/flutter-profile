@@ -40,30 +40,50 @@ class RiwayatPendidikanPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
+
+            // Gunakan Expanded agar grid scrollable dan mengisi sisa ruang
             Expanded(
-              child: ListView.separated(
+              child: GridView.builder(
                 itemCount: pendidikan.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 12),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, // Dua kolom
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                  childAspectRatio: 4 / 3,
+                ),
                 itemBuilder: (context, index) {
                   final item = pendidikan[index];
                   return Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    elevation: 3,
-                    child: ListTile(
-                      leading: Icon(
-                        item['icon'] as IconData,
-                        color: Colors.green,
+                    elevation: 4,
+                    child: Padding(
+                      padding: const EdgeInsets.all(12.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            item['icon'] as IconData,
+                            color: Colors.green,
+                            size: 40,
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            item['jenjang'] as String,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            item['sekolah'] as String,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 14),
+                          ),
+                        ],
                       ),
-                      title: Text(
-                        item['jenjang'] as String,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      subtitle: Text(item['sekolah'] as String),
                     ),
                   );
                 },
